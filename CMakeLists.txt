@@ -3,4 +3,6 @@ project(MessageBus)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(MessageBus main.cpp)
+add_executable(MessageBus main.cpp
+        Models/Message.cpp
+        Models/Message.h)
