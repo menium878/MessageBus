@@ -5,11 +5,21 @@
 #ifndef MESSAGEBUS_MESSAGEBUS_H
 #define MESSAGEBUS_MESSAGEBUS_H
 
-
+#include <functional>
+#include <queue>
+#include "Message.h"
 class MessageBus {
 public:
     MessageBus() = default;
     ~MessageBus() = default;
+
+    void addReceiver(std::function<void (Message)>messageReceiver){
+        receivers.push_back(messageReceiver);
+    }
+private:
+    std::vector<std::function<void (Message)>> receivers;
+    std::queue<Message> messages;
+
 };
 
 
