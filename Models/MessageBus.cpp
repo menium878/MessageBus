@@ -3,3 +3,12 @@
 //
 
 #include "MessageBus.h"
+
+void MessageBus::addReceiver(std::function<void(Message)> messageReceiver) {
+        receivers.push_back(messageReceiver);
+}
+void MessageBus::sendMessage(Message message)
+{
+    messages.push(message);
+}
+

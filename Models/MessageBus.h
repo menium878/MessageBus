@@ -13,9 +13,8 @@ public:
     MessageBus() = default;
     ~MessageBus() = default;
 
-    void addReceiver(std::function<void (Message)>messageReceiver){
-        receivers.push_back(messageReceiver);
-    }
+    void addReceiver(std::function<void (Message)>messageReceiver);
+    void sendMessage(Message message);
 private:
     std::vector<std::function<void (Message)>> receivers;
     std::queue<Message> messages;
